@@ -10,7 +10,7 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
-    int num = 0;
+    int price = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,16 +18,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
     }
-    // amethod to be called when the order button is clicked
+    // a method to be called when the order button is clicked
     public void onOrderClick(View view){
-        displayPrice(num*2);
+        displayPrice(price *2);
 
     }
 
 
     // display the given quantity on the screen
     private void display(int num){
-        TextView quantityTextView = (TextView) findViewById(R.id.qty_text_view);
+        TextView quantityTextView = findViewById(R.id.qty_text_view);
         quantityTextView.setText("" + num);
     }
     // display the price
@@ -39,25 +39,19 @@ public class MainActivity extends AppCompatActivity {
     // increment on clicking the increment button
     public void increment(View view){
 
-        num = num+1;
-        display(num);
+        price = price +1;
+        display(price);
     }
     public void decrement(View view){
-        num = num-1;
-        if(num < 0){
-            num = 0;
-            display(num);
+        price = price -1;
+        if(price < 0){
+            price = 0;
+            display(price);
         }else {
-            display(num);
+            display(price);
         }
 
     }
-    /**
-     * This method displays the given text on the screen.
-     */
-    private void displayMessage(String message) {
-        TextView priceTextView = findViewById(R.id.price_txt_view);
-        priceTextView.setText(message);
-    }
+
 
 }
